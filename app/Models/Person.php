@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Person extends Model
 {
@@ -24,7 +25,7 @@ class Person extends Model
         return $this->belongsTo(Status::class);
     }
 
-    public function missions()
+    public function missions() : BelongsToMany
     {
         return $this->belongsToMany(Mission::class);
     }

@@ -1,0 +1,23 @@
+.status-filter__status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-button {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 0;
+    background-color: rgba(200, 200, 200, 1);
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.status-button.selected {
+    background-color: #163838 !important;
+    color: #fff !important;
+}
