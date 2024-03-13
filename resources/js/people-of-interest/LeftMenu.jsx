@@ -1,12 +1,16 @@
 import { useState } from "react"
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
 
-export default function LeftMenu() {
+export default function LeftMenu({content, setContent}) {
 
     const [hidden, setHidden] = useState(false);
 
+
+
+
     return (
         <nav className={ `left-menu${hidden ? ' left-menu_hidden' : ''}` }>
-
             <div
                 className="left-menu__visibility-toggle"
                 onClick={ () => setHidden(!hidden) }
@@ -21,8 +25,8 @@ export default function LeftMenu() {
                 </div>
 
                 <div className="left-menu__links">
-                    <a href="/">Home</a>
-                    <a href="/#">People of interest</a>
+                    <a onClick={() => setContent('')} href="#">Home</a>
+                    <a onClick={() => setContent('people-of-interest')} href="#">People of interest</a>
                 </div>
 
             </div>

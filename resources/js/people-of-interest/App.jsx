@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 export default function App() {
 
     const [user, setUser] = useState(null)
+    const [content, setContent] = useState('')
 
     const getUser = async () => {
         const response = await fetch('/api/user');
@@ -22,12 +23,13 @@ export default function App() {
         getUser();
     }, [])
 
+
     return (
         <>
             <UserContext.Provider value={{user, setUser, getUser}}>
                 <BrowserRouter>
-                    <LeftMenu/>
-                    <Main />
+                    <LeftMenu content={content} setContent={setContent}/>
+                    <Main content={content} setContent={setContent}/>
                 </BrowserRouter>
             </UserContext.Provider>
         </>

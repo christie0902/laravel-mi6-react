@@ -1,14 +1,27 @@
-import People from "./People"
-import { Routes, Route } from 'react-router-dom';
-import Register from "./Register";
 import { useContext } from "react";
+import { Routes, Route } from 'react-router-dom';
+
 import UserContext from "./UserContext";
 
-export default function Main() {
+import People from "./People"
+import Register from "./Register";
+import Home from "./Home.jsx";
+
+export default function Main({content}) {
+    
     const { user } = useContext(UserContext)
+
+    let selectedContent = ''
+    switch (content) {
+        case '':
+            selectedContent = <Home/>
+            break;
+        case 'people-of-interest':
+            selectedContent = <People/>
+            break;
+    }
     return (
         <main className="main">
-
             <div className="main__content">
                 <Routes>
                     <Route path="/" element={
@@ -20,6 +33,8 @@ export default function Main() {
                     <Route path="/register" element={ <Register /> } />
 
                 </Routes>
+
+                {selectedContent}
             </div>
 
         </main>

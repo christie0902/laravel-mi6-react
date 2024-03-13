@@ -17,17 +17,24 @@ class PersonController extends Controller
 {
     public function index(Request $request)
     {
-        $people = Person::with([
-                'image',
-                'status',
-                'aliases'
-            ])->get();
+        $statusQueryParam = $request->query('status');
+
+        if (empty($statusQueryParam)) {
+            $people = Person::with(['image', 'status', 'aliases'])->get();
+        } else {
+            $people = Person::with(['image', 'status', 'aliases'])
+                ->whereHas('status', function ($query) use ($statusQueryParam) {
+                    $query->where('id', $statusQueryParam);
+                })
+                ->get();
+        }
 
         return compact('people');
     }
 
     public function show($person_id)
     {
+
         $person = Person::with([
             'image',
             'status',
