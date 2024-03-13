@@ -50,7 +50,6 @@ export default function People() {
                                 <PeopleList people={people} setPersonId={setPersonId}/>
                             </div>
                     )
-
             }
 
         </div>

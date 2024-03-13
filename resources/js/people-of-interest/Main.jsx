@@ -5,7 +5,7 @@ import UserContext from "./UserContext";
 
 import People from "./People"
 import Register from "./Register";
-import Home from "./Home.jsx";
+import Home from "./Home";
 
 export default function Main({content}) {
     
