@@ -13,6 +13,7 @@ const StatusFilter = ({ selectedStatus, setSelectedStatus }) => {
             });
             const statusesData = await response.json();
             setStatuses(statusesData);
+            console.log(statusesData)
         } catch (error) {
             console.error("Error fetching statuses:", error);
         }

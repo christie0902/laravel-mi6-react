@@ -7,31 +7,31 @@ import { useEffect, useState } from 'react';
 
 export default function App() {
 
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
     const [content, setContent] = useState('')
 
-    const getUser = async () => {
-        const response = await fetch('/api/user');
+    // const getUser = async () => {
+    //     const response = await fetch('/api/user');
 
-        if (response.status == 200) {
-            const data = await response.json();
-            setUser(data)
-        }
-    }
+    //     if (response.status == 200) {
+    //         const data = await response.json();
+    //         setUser(data)
+    //     }
+    // }
 
-    useEffect(() => {
-        getUser();
-    }, [])
+    // useEffect(() => {
+    //     getUser();
+    // }, [])
 
 
     return (
         <>
-            <UserContext.Provider value={{user, setUser, getUser}}>
+            {/* <UserContext.Provider value={{user, setUser, getUser}}> */}
                 <BrowserRouter>
                     <LeftMenu content={content} setContent={setContent}/>
                     <Main content={content} setContent={setContent}/>
                 </BrowserRouter>
-            </UserContext.Provider>
+            {/* </UserContext.Provider> */}
         </>
     )
 }

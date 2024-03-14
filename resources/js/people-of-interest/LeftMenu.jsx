@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function LeftMenu({content, setContent}) {
 
@@ -20,8 +21,9 @@ export default function LeftMenu({content, setContent}) {
                 </div>
 
                 <div className="left-menu__links">
-                    <a onClick={() => setContent('')} href="#">Home</a>
-                    <a onClick={() => setContent('people-of-interest')} href="#">People of interest</a>
+                <Link to="/">Home</Link>
+                <Link to="/people-of-interest">People of interest</Link>
+                <Link to="/mission">Missions</Link>
                 </div>
 
             </div>

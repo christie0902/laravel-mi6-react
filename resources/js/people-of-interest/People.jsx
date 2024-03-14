@@ -38,8 +38,7 @@ export default function People() {
 
             <h1>People of interest</h1>
 
-            <StatusFilter selectedStatus={selectedStatus} setSelectedStatus={setSelectedStatus}/>.
-
+           
             {
                 loading
                     ? <div className="loading">Loading...</div>
@@ -47,7 +46,9 @@ export default function People() {
                         personId && person ?
                             <PersonDetail setPersonId={setPersonId} person={person} setPerson={setPerson}/> :
                             <div className="people-of-interest__list">
-                                <PeopleList people={people} setPersonId={setPersonId}/>
+                                 
+
+                                <PeopleList people={people} setPersonId={setPersonId} selectedStatus ={selectedStatus} setSelectedStatus={selectedStatus}/>
                             </div>
                     )
             }

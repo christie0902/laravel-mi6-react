@@ -20,4 +20,27 @@ class MissionController extends Controller
         ])->findOrFail($id)->toJson();
     }
 
+    public function assignPerson(Request $request)
+    {
+        $missionId = $request->input('missionId');
+
+        $mission = Mission::find($missionId);
+
+        if (!$mission) {
+            return response()->json(['message' => 'Mission not found'], 404);
+        }
+
+        $personId = $request->input('personId');
+
+
+        $person = Person::find($personId);
+
+        if (!$person) {
+            return response()->json(['message' => 'Person not found'], 404);
+        }
+
+        $mission->people()->attach($personId);
+
+        return response()->json(['message' => 'Person assigned to mission successfully'], 200);
+    }
 }

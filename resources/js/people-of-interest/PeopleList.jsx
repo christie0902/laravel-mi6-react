@@ -1,4 +1,5 @@
 import './PeopleList.scss';
+import StatusFilter from './StatusFilter';
 
 export default function PeopleList({
     people,
@@ -6,7 +7,6 @@ export default function PeopleList({
 }) {
     return (
         <div className="people-list">
-
             {
                 people.map(person => (
                     <div
